@@ -25,27 +25,70 @@ class PaginaInicial extends StatelessWidget {
           child: Center(
 	        child: Column(
         	children: <Widget>[
-         	Image.asset("images/camara.png"),
+         	Image.asset("images/car.png"),
 
-         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Primer Text Field',
-            ),
-          ),//Fin Primer Text Field
-        ),//Fin Primer Padding
+         Padding(//Inicio Primer Padding 
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(//TextFormField
+              validator: (String value) {//Inicio Validator
+                if (value.isEmpty) {//IF
+                  return 'Nombre usuario Vacio';
+                } else if (value.length < 3) {//ELSE IF
+                  return 'El nombre de usuario debe tener al menos 3 caracteres';
+                }
+                return null;
+              },//Fin Validator
+              decoration: InputDecoration(//Decorar
+                labelText: 'Nombre Usuario',
+                icon: Icon(Icons.account_circle),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+              ),//Fin decoration
+            ),//Fin TextFormField
+          ),//Fin Primer Padding
 
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Segundo Text Field',
-            ),
-          ),//Fin Segundo Text Field
-        ),//Fin Segundo Padding
+        Padding(//Inicio Primer Padding 
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(//TextFormField
+              validator: (String value) {//Inicio Validator
+                if (value.isEmpty) {//IF
+                  return 'Nombre usuario Vacio';
+                } else if (value.length < 3) {//ELSE IF
+                  return 'El nombre de usuario debe tener al menos 3 caracteres';
+                }
+                return null;
+              },//Fin Validator
+              decoration: InputDecoration(//Decorar
+                labelText: 'Nombre Usuario',
+                icon: Icon(Icons.account_circle),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+              ),//Fin decoration
+            ),//Fin TextFormField
+          ),//Fin Primer Padding
+
+           Padding(//Inicio Primer Padding 
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(//TextFormField
+              validator: (String value) {//Inicio Validator
+                if (value.isEmpty) {//IF
+                  return 'Nombre usuario Vacio';
+                } else if (value.length < 3) {//ELSE IF
+                  return 'El nombre de usuario debe tener al menos 3 caracteres';
+                }
+                return null;
+              },//Fin Validator
+              decoration: InputDecoration(//Decorar
+                labelText: 'Nombre Usuario',
+                icon: Icon(Icons.account_circle),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+              ),//Fin decoration
+            ),//Fin TextFormField
+          ),//Fin Primer Padding
+
+ 
+
 
   	    ],//Fin Widget
 	    ),//Fin Columna
