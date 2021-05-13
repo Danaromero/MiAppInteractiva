@@ -26,6 +26,27 @@ class PaginaInicial extends StatelessWidget {
 	        child: Column(
         	children: <Widget>[
          	Image.asset("images/camara.png"),
+
+         Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Primer Text Field',
+            ),
+          ),//Fin Primer Text Field
+        ),//Fin Primer Padding
+
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Segundo Text Field',
+            ),
+          ),//Fin Segundo Text Field
+        ),//Fin Segundo Padding
+
   	    ],//Fin Widget
 	    ),//Fin Columna
      ),//Fin Center
