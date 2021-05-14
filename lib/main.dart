@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(danaApp());
 
-
 class danaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,6 @@ class danaApp extends StatelessWidget {
     ); //Fin Material
   } //Fin Widget
 } //Fin de Fila Columna
-
 
 class PaginaInicial extends StatefulWidget {
   @override
@@ -37,7 +35,7 @@ class _MyHomePageState extends State<PaginaInicial> {
       value: 31,
       child: Text('2002'),
     ),
-   DropdownMenuItem(
+    DropdownMenuItem(
       value: 32,
       child: Text('2003'),
     ),
@@ -77,103 +75,113 @@ class _MyHomePageState extends State<PaginaInicial> {
       value: 41,
       child: Text('2012'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 42,
       child: Text('2013'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 43,
       child: Text('2014'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 44,
       child: Text('2015'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 45,
       child: Text('2016'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 46,
       child: Text('2017'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 47,
       child: Text('2018'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 48,
       child: Text('2019'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 49,
       child: Text('2020'),
     ),
-     DropdownMenuItem(
+    DropdownMenuItem(
       value: 50,
       child: Text('2021'),
     )
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text('Bienvenido a Tetos Cars'),
-      ),
+      ),//Fin AppBar
       body: Center(
         child: Column(
           children: <Widget>[
+            new Padding(
+              padding: const EdgeInsets.symmetric(vertical: 25.0),
+            ),
+            Image.asset("images/q.PNG"),
+            new Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+            ),
 
-            Image.asset("images/car.png"),
-
-         Padding(//Inicio Primer Padding 
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(//TextFormField
-              validator: (String value) {//Inicio Validator
-                if (value.isEmpty) {//IF
-                  return 'Modelo del Auto';
-                } else if (value.length < 3) {//ELSE IF
-                  return 'El nombre de usuario debe tener al menos 3 caracteres';
-                }
-                return null;
-              },//Fin Validator
-              decoration: InputDecoration(//Decorar
-                labelText: 'Ingresa la Marca del Auto',
-                icon: Icon(Icons.edit_rounded),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
-              ),//Fin decoration
-            ),//Fin TextFormField
-          ),//Fin Primer Padding
-
-          Padding(//Inicio Primer Padding 
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(//TextFormField
-              validator: (String value) {//Inicio Validator
-                if (value.isEmpty) {//IF
-                  return 'Nombre usuario Vacio';
-                } else if (value.length < 3) {//ELSE IF
-                  return 'El nombre de usuario debe tener al menos 3 caracteres';
-                }
-                return null;
-              },//Fin Validator
-              decoration: InputDecoration(//Decorar
-                labelText: 'Ingresa el Modelo del Auto',
-                icon: Icon(Icons.drive_eta),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
-              ),//Fin decoration
-            ),//Fin TextFormField
-          ),//Fin Primer Padding
-
-     
-
-          Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          SizedBox(width: 20),
+            Padding(
+              //Inicio Primer Padding
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                //TextFormField
+                validator: (String value) {
+                  //Inicio Validator
+                  if (value.isEmpty) {
+                    //IF
+                    return 'Modelo del Auto';
+                  } else if (value.length < 3) {
+                    //ELSE IF
+                    return 'El nombre de usuario debe tener al menos 3 caracteres';
+                  }
+                  return null;
+                }, //Fin Validator
+                decoration: InputDecoration(
+                  //Decorar
+                  labelText: 'Ingresa la Marca del Auto',
+                  icon: Icon(Icons.edit_rounded, color: Colors.pink),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                ), //Fin decoration
+              ), //Fin TextFormField
+            ), //Fin Primer Padding
+            Padding(
+              //Inicio Primer Padding
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                //TextFormField
+                validator: (String value) {
+                  //Inicio Validator
+                  if (value.isEmpty) {
+                    //IF
+                    return 'Nombre usuario Vacio';
+                  } else if (value.length < 3) {
+                    //ELSE IF
+                    return 'El nombre de usuario debe tener al menos 3 caracteres';
+                  }
+                  return null;
+                }, //Fin Validator
+                decoration: InputDecoration(
+                  //Decorar
+                  labelText: 'Ingresa el Modelo del Auto',
+                  icon: Icon(Icons.drive_eta, color: Colors.indigo),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                ), //Fin decoration
+              ), //Fin TextFormField
+            ), //Fin Primer Padding
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                SizedBox(width: 20),
                 new Expanded(
                   child: TextFormField(
                     decoration: InputDecoration(labelText: 'Martricula'),
@@ -181,61 +189,55 @@ class _MyHomePageState extends State<PaginaInicial> {
                       return value.isEmpty ? 'Empty name.' : '';
                     },
                   ),
+                ),//Fin Expanded
+                DropdownButton(
+                  items: items,
+                  hint: Text("Selecciona el Año"),
+                  onChanged: _enabled
+                      ? (v) => setState(() {
+                            value = v;
+                          })
+                      : null,
+                  value: value,
+                ), //Fin DropdownButton
+              ], //Fin Widget []
+            ), //Fin del primer Row
+
+            new Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                  color: Colors.blue[200],
+                  onPressed: () => print("Button Pressed"),
+                  child: new Text("Aceptar"),
+                  splashColor: Colors.cyan,
+                  animationDuration: Duration(seconds: 20),
+                  padding: EdgeInsets.all(20.0),
+                  colorBrightness: Brightness.light,
+                ), //Fin RaisedButton
+                new Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 ),
-           DropdownButton(
-              items: items,
-              hint: Text("Selecciona el Año"),
-              onChanged: _enabled
-                  ? (v) => setState(() {
-                        value = v;
-                      })
-                  : null,
-              value: value,
-            ),//Fin DropdownButton
+                RaisedButton(
+                  color: Colors.greenAccent[200],
+                  onPressed: () => print("Button Pressed"),
+                  child: new Text("Cancelar"),
+                  splashColor: Colors.green,
+                  animationDuration: Duration(seconds: 20),
+                  padding: EdgeInsets.all(20.0),
+                ), //Fin RaisedButton
 
-        ],//Fin Widget []
-      ), //Fin del primer Row
+              ], //Fin Widget
+            ), //Fin Row 2
+            Image.asset("images/car.png"),
+          ],//Fin Children Widget
 
-        new Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-              ),
-
-     Row(
-       mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-      RaisedButton(
-          color: Colors.greenAccent,
-          onPressed: () => print("Button Pressed"),
-          child: new Text("Aceptar"),
-          splashColor: Colors.red[200],
-         animationDuration: Duration(seconds: 10),
-         padding: EdgeInsets.all(20.0),
-         colorBrightness: Brightness.light,
-         
-                ), //Fin RaisedButton   
-
-          new Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              ),
-
-       RaisedButton(
-          color: Colors.greenAccent,
-          onPressed: () => print("Button Pressed"),
-          child: new Text("Cancelar"),
-          splashColor: Colors.red[200],
-         animationDuration: Duration(seconds: 10),
-         padding: EdgeInsets.all(20.0),
-         colorBrightness: Brightness.light,
-                ), //Fin RaisedButton     
-
-
-                ],//Fin Widget
-              ), //Fin Row 2
-
-          ],
-        ),
-      ),
-    );
-  }
-}
-
+        ),//Fin Columna
+      ),//Fin Body Center
+    );//Fin Scaffold
+  }//Fin Widget
+}//Fin _MyHomePageState
